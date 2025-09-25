@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+.profile_default/
+
+# Logs
+*.log
+logs/
+
+# Cache / tooling
+.cache/
+.pytest_cache/
+.mypy_cache/
+pytestdebug.log
+.coverage
+.tox/
+
+# IDE / Editors
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project outputs
+olx_car_covers.csv
+
+# Playwright
+playwright-report/
+blob-report/
