@@ -140,3 +140,44 @@ def get_success_message(count: int) -> str:
         return f"Successfully found {count} car cover listings! 🎉"
 
 
+def generate_mock_listings(n: int = 10) -> List[Dict[str, str]]:
+    """
+    Generate mock OLX car cover listings for offline/demo runs.
+    """
+    titles = [
+        "Premium Car Cover for Sedan",
+        "All-Weather SUV Car Body Cover",
+        "Dustproof Hatchback Cover",
+        "Waterproof Car Cover with Mirror Pockets",
+        "UV Protection Car Body Cover",
+        "Heavy Duty Silver Coated Cover",
+        "Compact Car Body Cover",
+        "Outdoor Monsoon Car Cover",
+        "Elastic Fit Car Body Cover",
+        "Breathable Car Cover"
+    ]
+    features = [
+        "Waterproof, UV Protection, Dustproof",
+        "Heavy duty, mirror pockets",
+        "Silver coated, strap & buckle",
+        "All-season protection, soft inner lining",
+        "Anti-scratch, elastic hem",
+        "Includes storage bag",
+        "Triple-stitch seams",
+        "Windproof straps",
+        "Heat resistant",
+        "Lightweight and durable"
+    ]
+    prices = ["₹ 999", "₹ 1,199", "₹ 1,299", "₹ 1,499", "₹ 1,799", "₹ 1,999", "₹ 2,199"]
+
+    listings: List[Dict[str, str]] = []
+    for i in range(n):
+        title = random.choice(titles)
+        desc = random.choice(features)
+        price = random.choice(prices)
+        listings.append({
+            'title': title,
+            'description': desc,
+            'price': price
+        })
+    return listings

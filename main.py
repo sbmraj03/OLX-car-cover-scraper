@@ -112,10 +112,19 @@ def main():
         
         # Scrape or mock
         raw_listings = []
-       
-        logger.info("Starting OLX car cover scraping...")
-        raw_listings = scraper.scrape_search_results(args.url, max_pages=args.pages)
-            
+        used_mock = False
+        if args.mock:
+            logger.info("Using mock listings data (no network)")
+            raw_listings = generate_mock_listings(n=15)
+            used_mock = True
+        else:
+            logger.info("Starting OLX car cover scraping...")
+            raw_listings = scraper.scrape_search_results(args.url, max_pages=args.pages)
+            # Auto-fallback if scraping fails or yields empty
+            if not raw_listings:
+                logger.warning("Scraping returned no results; falling back to mock data")
+                raw_listings = generate_mock_listings(n=15)
+                used_mock = True
         
         # Process the data
         if raw_listings:
